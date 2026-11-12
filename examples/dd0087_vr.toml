@@ -1,0 +1,19 @@
+# dd0087's Spherical Camera as a top-bottom stereo 360.
+#
+#   ADDON=~/yt/cycles-yt YT_IDV=~/dxl/yt_idv-raytable ./make_bundle.sh examples/dd0087_vr.toml /data/delta_bundle
+#
+# Local paths; on the cluster render_frames.sh replaces the data, .blend,
+# extension, output and work paths, and the frame range comes from delta.env.
+
+[data]
+scene = "/data3/scene-extract/dd0087_export.zip"
+
+[blender]
+file = "/home/mturk/yt/cycles-yt/dd0087.blend"
+volume = "yt Volume"
+camera = "Spherical Camera"
+extensions = ["/home/mturk/yt/cycles-yt/extensions/deep_zoom"]
+output = "renders/dd0087_vr/frame_"
+resolution = [2048, 1024]  # per eye
+stereo = "TOPBOTTOM"
+device = "OPTIX"
